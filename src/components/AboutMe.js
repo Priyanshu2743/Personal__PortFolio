@@ -1,4 +1,5 @@
 import ProfileCard from "./Profile_card";
+import './CSS/Design_Portfolio.css';
 
 export default function AboutMe() {
     return (
@@ -8,10 +9,10 @@ export default function AboutMe() {
         <div class="container">
           <div class="row g-4">
             <ProfileCard />
-            <div class="col-xl-8">
-              <div class="card content-box-card">
-                <div class="card-body">
-                  <div class="top-info">
+            {/* <div class="col-xl-8"> */}
+              {/* <div class="card content-box-card"> */}
+                {/* <div class="card-body"> */}
+                  {/* <div class="top-info">
                     <div class="text">
                       <h1 class="main-title">Hi, This Is <span> Antara </span> 👋</h1>
                       <p>A Passionate <b>Full Stack Developer</b> 🖥️ & <b>Product Designer</b> having
@@ -54,7 +55,55 @@ export default function AboutMe() {
                         </span>
                       </div>
                     </div>
+                  </div> */}
+              <div class="col-xl-8">                
+                <div class="card content-box-card">
+                  <div className="portfolio-container">
+                    <div className="left-section">
+                      <p className="intro-text animated-fade-in-down">Hey. I'm Priyanshu,</p>
+                      <h1 className="main-heading">
+                        <span className="animated-slide-in-left delay-1">A UI/UX</span>
+                        <span className="animated-slide-in-left delay-2">& Software</span>
+                        <span className="animated-slide-in-left delay-3">Developer</span>
+                      </h1>
+                      <p className="description-text animated-fade-in-up delay-4">
+                        Transforming ideas into stunning visuals – UI/UX and brand design
+                        that captivates, engages, and delivers results.
+                      </p>
+                      <button className="contact-button animated-fade-in-up delay-5">
+                        CONTACT ME 
+                        {/* <FaArrowRight className="arrow-icon" /> */}
+                      </button>
+                    </div>
+                    <div className="right-section">
+                      {/* <div className="image-wrapper animated-fade-in">
+                        <img
+                          src="/Assets/img/Portfolio/Resume2.png" 
+                          alt="Solt - UI/UX & Brand Designer"
+                          className="designer-image"
+                        />
+                      </div> */}
+                      <div className="stats-container">
+                        <div className="stat-item animated-fade-in-right delay-1">
+                          <p className="stat-number">15+</p>
+                          <p className="stat-label">Years Experience</p>
+                        </div>
+                        <div className="stat-item animated-fade-in-right delay-2">
+                          <p className="stat-number">280+</p>
+                          <p className="stat-label">Projects Delivered</p>
+                        </div>
+                        <div className="stat-item animated-fade-in-right delay-3">
+                          <p className="stat-number">*99%</p>
+                          <p className="stat-label">Client Satisfaction</p>
+                        </div>
+                        <div className="stat-item animated-fade-in-right delay-4">
+                          <p className="stat-number">50</p>
+                          <p className="stat-label">Clients worldwide</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                <div class="card-body">
                   <div class="working-with-area">
                     <h2 class="main-common-title">Working With 50+ Brands ✨ Worldwide
                     </h2>
@@ -109,7 +158,7 @@ export default function AboutMe() {
                       </div>
                     </div>
                   </div>
-                  <div class="client-feedback">
+                  {/* <div class="client-feedback">
                     <h2 class="main-common-title">Trusted By 1200+ Clients
                     </h2>
                     <div class="row client-feedback-slider">
@@ -213,7 +262,7 @@ export default function AboutMe() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div class="awards-recognitions">
                     <h2 class="main-common-title">Awards and Recognitions
                     </h2>
@@ -390,7 +439,7 @@ export default function AboutMe() {
                       </ul>
                     </div>
                   </div>
-                  <div class="article-publications">
+                  {/* <div class="article-publications">
                     <h2 class="main-common-title">Article and Publications</h2>
                     <div class="article-publications-main">
                       <div class="row article-publications-slider">
@@ -450,7 +499,7 @@ export default function AboutMe() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div class="work-together-slider">
                     <div class="slider-main d-flex gap-4 align-items-center">
                       <div class="slider-item">

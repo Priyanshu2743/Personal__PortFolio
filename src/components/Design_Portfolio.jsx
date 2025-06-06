@@ -1,6 +1,3 @@
-// import { FaArrowRight } from 'react-icons/fa';
-// import './CSS/Design_Portfolio.css';
-
 const DesignerPortfolio = () => {
   return (
     <div className="portfolio-container">
