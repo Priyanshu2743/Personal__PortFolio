@@ -1,0 +1,547 @@
+/* Import a font similar to the one in the image if available, e.g., from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Condensed:wght@700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f0f0f0; /* Or a light background similar to the image */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* For centering the component on the page */
+  color: #333;
+}
+
+.portfolio-container {
+  display: flex;
+  max-width: 1200px; /* Adjust as needed */
+  width: 90%;
+  margin: 40px auto;
+  background-color: #ffffff; /* Or a very light beige if the image background isn't pure white */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Important for some animations and rounded corners if you add them */
+  border-radius: 10px; /* Optional rounded corners for the container */
+}
+
+.left-section {
+  flex: 1;
+  padding: 60px 40px 60px 80px; /* Adjust padding as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fdfbf7; /* A very light off-white, try to match image */
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 8px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main-heading {
+  font-family: 'Playfair Display', serif; /* A serif font for the main heading */
+  font-size: 4rem; /* Adjust based on desired size */
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  color: #2c2c2c;
+  text-transform: uppercase; /* As seen in image "DESIGNER" */
+}
+
+.main-heading span {
+  display: block; /* Each part of the heading on a new line */
+}
+
+.description-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin-bottom: 35px;
+  max-width: 450px; /* Limit width for better readability */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contact-button {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 50px; /* Pill shape */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between text and icon */
+  align-self: flex-start; /* Align button to the start */
+}
+
+.contact-button:hover {
+  background-color: #4a4a4a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contact-button .arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.contact-button:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+.right-section {
+  flex: 1.2; /* Give slightly more space to the image and stats if needed */
+  display: flex;
+  flex-direction: column;
+  position: relative; /* For positioning stats if needed, or image effects */
+  background-color: #e9e5e0; /* Background color behind the image, match from image */
+}
+
+.image-wrapper {
+  flex-grow: 1; /* Allow image to take available space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* If you want to contain image hover effects */
+  position: relative; /* For potential overlay effects */
+}
+
+.designer-image {
+  max-width: 100%;
+  max-height: 400px; /* Adjust as needed, ensure it doesn't overflow */
+  object-fit: cover; /* Or 'contain' depending on how you want image to display */
+  display: block;
+  transition: transform 0.4s ease-out, filter 0.4s ease;
+}
+
+.image-wrapper:hover .designer-image {
+  transform: scale(1.05); /* Subtle zoom on hover */
+  /* filter: brightness(1.1);  */
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px 40px;
+  background-color: rgba(255, 255, 255, 0.1); /* Slight transparent overlay if needed, or solid color */
+  position: absolute; /* Position it over the bottom part of the image or below */
+  bottom: 0;
+  width: calc(100% - 80px); /* Adjust width considering padding */
+  left: 40px; /* Center it if positioned absolutely */
+  /* If stats are below the image, remove absolute positioning and adjust layout */
+  /* For the example image, stats are to the right of the image, so we'll adjust: */
+  position: static; /* Change from absolute if stats are next to image area */
+  flex-direction: column; /* Stack stats vertically */
+  align-items: flex-end; /* Align to the right */
+  padding: 40px; /* Padding for the stats area */
+  padding-right: 80px; /* More padding on the right to match image */
+  background-color: transparent; /* Assuming stats are on the same background as image */
+}
+
+/* Re-adjusting right section for image on left and stats on right within the right-section */
+.right-section {
+  display: flex; /* This is the main change for side-by-side */
+  align-items: center; /* Vertically align items */
+}
+
+.image-wrapper { /* Image takes up part of the right section */
+  flex: 2; /* Adjust flex ratio as needed */
+  align-self: stretch; /* Make it take full height of parent */
+}
+.designer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the area */
+}
+
+
+.stats-container { /* Stats take up the other part */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center stats vertically */
+  align-items: flex-start; /* Align text to the left within this column */
+  padding: 20px 40px 20px 20px; /* Adjust padding */
+  gap: 20px; /* Space between stat items */
+  height: 100%; /* Try to match image height */
+  box-sizing: border-box;
+}
+
+
+.stat-item {
+  text-align: left; /* Align text to the left */
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: default; /* If no action */
+}
+
+.stat-item:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  /* color: #007bff; */ /* Optional color change */
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 2px 0;
+  font-family: 'Playfair Display', serif; /* Consistent heading font */
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animated-fade-in-down { animation: fadeInDown 0.6s ease-out forwards; opacity: 0; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animated-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animated-slide-in-left { animation: slideInLeft 0.7s ease-out forwards; opacity: 0; }
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animated-fade-in { animation: fadeIn 0.8s ease-in-out forwards; opacity: 0;}
+
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animated-fade-in-right { animation: fadeInRight 0.6s ease-out forwards; opacity: 0; }
+
+
+/* Animation Delays */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1s; }
+
+
+/* Responsive Adjustments (Basic Example) */
+@media (max-width: 992px) {
+  .portfolio-container {
+    flex-direction: column;
+    width: 95%;
+  }
+  .left-section {
+    padding: 40px 30px;
+    text-align: center; /* Center text on smaller screens */
+  }
+  .main-heading {
+    font-size: 2.8rem;
+  }
+  .contact-button {
+    align-self: center; /* Center button */
+  }
+  .right-section {
+    flex-direction: column-reverse; /* Stack stats above image or vice-versa */
+  }
+  .image-wrapper {
+    height: 350px; /* Adjust height */
+  }
+  .designer-image {
+    max-height: 350px;
+  }
+  .stats-container {
+    flex-direction: row; /* Stats side-by-side on mobile if space allows */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: center; /* Reset alignment */
+    width: 100%;
+    position: static;
+    box-sizing: border-box; /* ensure padding is included in width */
+    background-color: #2c2c2c; /* Slightly different background for stats on mobile */
+  }
+  .stat-item {
+    flex-basis: 45%; /* Two items per row roughly */
+    text-align: center; /* Center stat text */
+    margin-bottom: 15px;
+  }
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .left-section {
+    padding: 30px 20px;
+  }
+  .main-heading {
+    font-size: 2.2rem;
+  }
+  .description-text {
+    font-size: 0.9rem;
+  }
+  .contact-button {
+    padding: 12px 25px;
+    font-size: 0.8rem;
+  }
+  .stats-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stat-item {
+    flex-basis: 100%; /* Stack stats vertically on very small screens */
+    text-align: center;
+  }
+}
+
+/* Achievement Section */
+.achievements-card-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9ebf0 100%);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: none;
+  overflow: hidden; /* To ensure inner elements don't break card shape */
+}
+
+.achievements-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.achievements-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #ff6f61; /* Accent color */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.achievements-main {
+  padding: 0 10px; /* Padding for scrollbar if content overflows */
+}
+
+.achievements-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive grid */
+  gap: 25px;
+  padding: 10px 0 30px 0;
+  margin: 0;
+}
+
+.achievement-item {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 35px 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start; /* Align items to the top */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-left-color 0.3s ease;
+  opacity: 0; /* For entry animation */
+  transform: translateY(30px); /* For entry animation */
+  animation: fadeInUpItem 0.5s ease-out forwards;
+  border-left: 5px solid transparent; /* For hover accent */
+}
+
+.achievement-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(44, 62, 80, 0.15);
+  border-left-color: var(--icon-color, #ff6f61); /* Use icon color or default */
+}
+
+.achievement-icon-area {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 50%; /* Make it circular */
+  background-color: #f0f4f8; /* Light background for icon area */
+  transition: transform 0.3s ease;
+}
+
+.achievement-item:hover .achievement-icon-area {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.achievement-icon-area .icon-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.05));
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s ease;
+}
+
+.achievement-item:hover .achievement-icon-area .icon-background {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.achievement-icon-area svg { /* Style for react-icons */
+  font-size: 2.2rem; /* Adjust size as needed */
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+/* /* If using <img> for icons:  */
+.achievement-icon-area img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+
+.achievement-item:hover .achievement-icon-area svg,
+.achievement-item:hover .achievement-icon-area img {
+    /* Optional: Icon specific hover animation */
+    transform: scale(1.1);
+}
+
+.achievement-content {
+  flex-grow: 1;
+  font-family: 'Poppins', sans-serif;
+}
+
+.achievement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.achievement-main-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #34495e;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.achievement-year {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #7f8c8d;
+  background-color: #ecf0f1;
+  padding: 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.achievement-description {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.achievement-category-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #3498db; /* Default category color */
+  padding: 4px 10px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.achievement-item[data-category="Product Success"] .achievement-category-badge { background-color: #ff6f61; }
+.achievement-item[data-category="UX Improvement"] .achievement-category-badge { background-color: #61c9ff; }
+.achievement-item[data-category="Recognition"] .achievement-category-badge { background-color: #f1c40f; } /* Brighter yellow */
+.achievement-item[data-category="Growth Metric"] .achievement-category-badge { background-color: #2ecc71; } /* Greener */
+
+@keyframes fadeInUpItem {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.achievements-list {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px; /* For scrollbar visibility */
+  gap: 25px;
+}
+.achievement-item {
+  min-width: 320px; /* Ensure items have a minimum width in horizontal scroll */
+  flex-shrink: 0;
+}
+.achievements-main::-webkit-scrollbar {
+  height: 8px;
+}
+.achievements-main::-webkit-scrollbar-thumb {
+  background: #bdc3c7;
+  border-radius: 4px;
+}
+.achievements-main::-webkit-scrollbar-thumb:hover {
+  background: #95a5a6;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .achievements-title {
+    font-size: 2rem;
+  }
+  .achievements-list {
+    grid-template-columns: 1fr; /* Stack items on smaller screens */
+    gap: 20px;
+  }
+  .achievement-item {
+    padding: 20px;
+    gap: 15px;
+  }
+  .achievement-main-title {
+    font-size: 1.1rem;
+  }
+  .achievement-description {
+    font-size: 0.9rem;
+  }
+  .achievement-icon-area {
+    width: 50px;
+    height: 50px;
+  }
+  .achievement-icon-area svg {
+    font-size: 1.8rem;
+  }
+}
