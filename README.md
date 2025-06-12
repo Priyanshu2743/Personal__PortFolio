@@ -1,7 +1,7 @@
 <h1 align="center"> Personal__Portfolio </h1>
 
-## Available Scripts
-In the project directory, you can run:
+## Personal_PortFolio
+In this repository, there is the website code for my personal portfolio
 
 ### `npm start`
 Runs the app in the development mode.
